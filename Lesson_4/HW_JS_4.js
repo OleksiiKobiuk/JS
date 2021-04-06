@@ -361,11 +361,50 @@
 // та  індентифікатор елемнту в який потрібно додати список цих автомобілів.
 // Для кожного автомобіля створити свій блок, та додати його в елемент, індентифікатор якого ви отримали.
 // Всі властивості авто в одному блоці
+// arr1 = [{name: 'Dima', age: 13}, {model: 'Camry'}];
+//
+// function pushator(arr = [], type = '') {
+//     for (const arrElement in arr) {
+//         const blockQualities = document.createElement(type);
+//         blockQualities.style.border = '3px solid blue';
+//         document.body.appendChild(blockQualities);
+//         let elementType = [];
+//         for (const arr2Element in arr[arrElement]) {
+//             elementType += `${arr2Element}: ${arr[arrElement][arr2Element]} <br> `;
+//         }
+//         blockQualities.innerHTML = elementType;
+//     }
+// }
+//
+// let type1 = 'h1';
+// pushator(arr1, type1);
+
 
 // - приймає масив автомобілів (можна взяти з попередніх дз )
 // та  індентифікатор елемнту в який потрібно додати список цих автомобілів.
 // Для кожного автомобіля створити свій блок, та додати його в елемент, індентифікатор якого ви отримали.
 // Для кожної властивості створити всередені блока автомоблія свій блок
+//
+arr1 = [{name: 'Dima', age: 13}, {model: 'Camry'}];
+
+function pushator(arr = [], type = '') {
+    for (const arrElement in arr) {
+        const blockQualities = document.createElement(type);
+        blockQualities.style.border = '3px solid blue';
+        document.body.appendChild(blockQualities);
+        for (const arr2Element in arr[arrElement]) {
+            const elementType = document.createElement(type);
+            elementType.innerHTML = `${arr2Element}: ${arr[arrElement][arr2Element]}`;
+            elementType.style.border = '2px solid green';
+            blockQualities.appendChild(elementType);
+        }
+    }
+}
+
+let type1 = 'h1';
+pushator(arr1, type1);
+
+
 // // ******************* НАЗАД В МИНУЛЕ *********************** //
 //
 //
