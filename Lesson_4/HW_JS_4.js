@@ -313,12 +313,11 @@
 // let n3 = 'Hermione Granger'
 //
 
-// let n1 = '    Harry       Potter      ';
+// let n1 = '    Harry       Potter    drebv    ';
 // let n2 = '    Ron       Whisley      ';
 // let n3 = '    Hermione       Granger      ';
 // let normalize = x => {
-//     let wo_space = x.trim();
-//     let arr = wo_space.split(' ');
+//     let arr = x.split(' ');
 //     let b = [];
 //     for (let i = 0; i < arr.length; i++) {
 //         if (arr[i] !== '') {
@@ -385,24 +384,24 @@
 // Для кожного автомобіля створити свій блок, та додати його в елемент, індентифікатор якого ви отримали.
 // Для кожної властивості створити всередені блока автомоблія свій блок
 //
-arr1 = [{name: 'Dima', age: 13}, {model: 'Camry'}];
-
-function pushator(arr = [], type = '') {
-    for (const arrElement in arr) {
-        const blockQualities = document.createElement(type);
-        blockQualities.style.border = '3px solid blue';
-        document.body.appendChild(blockQualities);
-        for (const arr2Element in arr[arrElement]) {
-            const elementType = document.createElement(type);
-            elementType.innerHTML = `${arr2Element}: ${arr[arrElement][arr2Element]}`;
-            elementType.style.border = '2px solid green';
-            blockQualities.appendChild(elementType);
-        }
-    }
-}
-
-let type1 = 'h1';
-pushator(arr1, type1);
+// arr1 = [{name: 'Dima', age: 13}, {model: 'Camry'}];
+//
+// function pushator(arr = [], type = '') {
+//     for (const arrElement in arr) {
+//         const blockQualities = document.createElement(type);
+//         blockQualities.style.border = '3px solid blue';
+//         document.body.appendChild(blockQualities);
+//         for (const arr2Element in arr[arrElement]) {
+//             const elementType = document.createElement(type);
+//             elementType.innerHTML = `${arr2Element}: ${arr[arrElement][arr2Element]}`;
+//             elementType.style.border = '2px solid green';
+//             blockQualities.appendChild(elementType);
+//         }
+//     }
+// }
+//
+// let type1 = 'h1';
+// pushator(arr1, type1);
 
 
 // // ******************* НАЗАД В МИНУЛЕ *********************** //
