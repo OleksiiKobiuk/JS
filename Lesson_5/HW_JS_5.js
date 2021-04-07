@@ -112,6 +112,7 @@ class BasePc extends Pc {
             console.log(`You reached maximum processor power of ${this.processor = this.init_processor * 1.1} Gb`);
         }
     }
+
     increase_ram() {
         let x = parseFloat(prompt('Add additional number of RAM, Gb:'));
         this.ram = this.ram + x;
@@ -123,8 +124,7 @@ class BasePc extends Pc {
     }
 }
 
-let
-    basepc1 = new BasePc(16, 800, 'HP', 'NFC');
+let basepc1 = new BasePc(16, 800, 'HP', 'NFC');
 basepc1.playGame();
 basepc1.increase_processor();
 basepc1.increase_processor();
