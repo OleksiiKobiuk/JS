@@ -125,26 +125,26 @@ class BasePc extends Pc {
 }
 
 let basepc1 = new BasePc(16, 800, 'HP', 'NFC');
-basepc1.playGame();
-basepc1.increase_processor();
-basepc1.increase_processor();
-basepc1.increase_processor();
-basepc1.increase_processor();
-basepc1.increase_processor();
-basepc1.increase_processor();
-basepc1.increase_processor();
-basepc1.increase_processor();
-basepc1.increase_processor();
-basepc1.increase_processor();
-basepc1.increase_processor();
-basepc1.increase_processor();
-basepc1.increase_processor();
-basepc1.increase_ram();
-basepc1.increase_ram();
-basepc1.increase_ram();
-basepc1.increase_ram();
-basepc1.increase_ram();
-basepc1.increase_ram();
+// basepc1.playGame();
+// basepc1.increase_processor();
+// basepc1.increase_processor();
+// basepc1.increase_processor();
+// basepc1.increase_processor();
+// basepc1.increase_processor();
+// basepc1.increase_processor();
+// basepc1.increase_processor();
+// basepc1.increase_processor();
+// basepc1.increase_processor();
+// basepc1.increase_processor();
+// basepc1.increase_processor();
+// basepc1.increase_processor();
+// basepc1.increase_processor();
+// basepc1.increase_ram();
+// basepc1.increase_ram();
+// basepc1.increase_ram();
+// basepc1.increase_ram();
+// basepc1.increase_ram();
+// basepc1.increase_ram();
 
 
 // Від базового ПК необхідно зробити ігровий ПК.
@@ -153,6 +153,31 @@ basepc1.increase_ram();
 // Якшо потужність процесора менша ніж 500. І оперативка менша за 8 потрібно видати помилку,
 // що на цьому відрі ігри не запускаються.
 //
+class GamingPc extends BasePc {
+    constructor(ram, processor, name, game_name) {
+        super(ram, processor, name, game_name);
+        this.fps_count = 2 * (pc1.processor / pc1.ram);
+    }
+
+    playGame() {
+        this.processor = this.processor * (1-0.001);
+        if (this.processor < 500 && this.ram < 8) {
+            console.log(`STOP! This bucket can not run ${this.game_name}`);
+        } else {
+            console.log(`You are playing ${this.game_name} with ${this.fps_count} FPS`);
+        }
+        console.log(this.processor);
+        console.log(this.ram);
+    }
+
+}
+
+let gamingPc1 = new GamingPc(6, 500, "Asus", "NFS");
+gamingPc1.playGame();
+gamingPc1.playGame();
+gamingPc1.playGame();
+
+
 // ______________________________________________________________________________________________________________________________________________________
 //                                                                 РОБОТА В АУДИТОРІЇ
 // ______________________________________________________________________________________________________________________________________________________
