@@ -90,9 +90,9 @@
 // // c) пройтись по ньому та додати кожному юзеру поле id - яке характеризує унікальний індентифікатор (По якому принципу його створювати - ваше рішення),
 // //    та зберегти це в новий масив (первинний масив залишиться без змін)
 //
-// let userWith = users;
-// console.log(userWith);
-// let userWithId = userWith.map(obj => obj.id = 2); // як можна в map зробити id від 0 до 10?
+// let userWith = JSON.stringify(users);
+// userWith = JSON.parse(userWith);
+// let userWithId = userWith.map(obj => obj.id = 1); // як можна в map зробити id від 0 до 10?
 // for (const userWithKey in userWith) {
 //     for (const userWithKeyElement in userWith[userWithKey]) {
 //         userWith[userWithKey].id = userWithKey
@@ -100,7 +100,7 @@
 // }
 // console.log(userWith);
 // console.log(userWithId);
-// console.log(users); // чому до даного масиву також додається id, я ж його вище переприсоїв іншому масиву і він не повинен мутувати?
+// console.log(users);
 //
 // // d) відсортувати його за індентифікатором
 //
