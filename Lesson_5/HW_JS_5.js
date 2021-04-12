@@ -71,7 +71,7 @@ class Ultrabook extends Laptop {
 let ultrabook1 = new Ultrabook(16, 567, 'Sony', 15, 1);
 console.log(ultrabook1);
 console.log(ultrabook1.battery_p());
-console.log(ultrabook1.switchOn());  // чому тут видає в консолі undefined?
+ultrabook1.switchOn();
 
 // Від базвого класу потрібно створити базовий ПК.
 // В нього має бути новий метод запуску ігор.
