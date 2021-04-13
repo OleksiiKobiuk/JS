@@ -92,16 +92,14 @@
 //
 // let userWith = JSON.stringify(users);
 // userWith = JSON.parse(userWith);
-// let userWithId = userWith.map(obj => obj.id = 1); // як можна в map зробити id від 0 до 10?
-// for (const userWithKey in userWith) {
-//     for (const userWithKeyElement in userWith[userWithKey]) {
-//         userWith[userWithKey].id = userWithKey
-//     }
-// }
+// const userWithId = userWith.map((value, index) => {
+// value.id = index;
+// return value
+// });
 // console.log(userWith);
 // console.log(userWithId);
 // console.log(users);
-//
+
 // // d) відсортувати його за індентифікатором
 //
 // userIdSort = userWith.sort((a, b) => b.id - a.id);
