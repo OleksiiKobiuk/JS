@@ -89,6 +89,7 @@ forward.onclick = () => {
     keyName = curIndex + 'textArea';
     localStorage.setItem('curIndex', curIndex);
     textArea.value = localStorage.getItem(keyName);
+
 }
 console.log(keyName);
 // - Реализуйте записную книгу, хранящую данные в локальном хранилище.
