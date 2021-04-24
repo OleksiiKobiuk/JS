@@ -1,98 +1,118 @@
-const cleanLaundry = 'Прання завершено';
-askMaster = () => {
-    console.log('Телефоную майстру')
-}
-washDog = () => {
-    console.log('Помита собака')
-}
+let money = 500;
 
 function wakeUp(alarmCall, callback) {
-    if (!alarmCall) {
-        console.log('Все ще сплю');
-        setTimeout(() => {
-            callback('Дзвенить другий будильник');
-        }, 2000)
-        setTimeout(() => {
-            callback('Прокинувся');
-        }, 3000)
-        return
-    }
-    callback(null, 'Я прокинувся');
+    setTimeout(() => {
+        if (!alarmCall) {
+            callback('Проспав до вечора');
+            return
+        }
+        callback(null, 'Я прокинувся');
+    }, 500)
 }
 
-function doLaundry(electicity, callback) {
+function doMorningExerc(exercises, callback) {
     setTimeout(() => {
-        console.log('Одяг завантажено');
-        console.log('Прання розпочато');
-    }, 3000)
-    if (!electicity) {
-        setTimeout(() => {
-            callback('Неможливо завершити прання');
-            callback('Відсутня електроенергія');
-            askMaster()
-        }, 3000)
-        return
-    }
-    setTimeout(() => {
-        washDog()
-    }, 500);
-    setTimeout(() => {
-        callback(null, cleanLaundry);
+        if (!exercises) {
+            callback(console.error('Гіподинамія шкідливо впливає на організм'));
+            return
+        }
+        callback(null, 'Зробив зарядку');
+        callback(null, 'Зарядився енергією на цілий день');
+    }, 1000)
+}
 
+function eat(eatMeal, callback) {
+    setTimeout(() => {
+        if (!eatMeal) {
+            callback('Залишився голодним');
+            return
+        }
+        callback(null, 'Смачно поїв, набрався сил');
+    }, 1000)
+}
+
+function goToWork(inTime, callback) {
+    setTimeout(() => {
+        if (!inTime) {
+            callback('Запізнився на роботу. Йди додому!')
+            return
+        }
+        callback(null, money += 500);
+    }, 1500)
+}
+
+function finishWork(inTime, callback) {
+    setTimeout(() => {
+        if (!inTime) {
+            callback('Доведеться пропустити тренування');
+            return
+        }
+        callback(null, 'Вперед, гарна фізична форма чекає на тебе!')
     }, 2000)
 }
 
-wakeUp(false, (err, getUp) => {
-    if (err) {
-        console.log(err);
-        doLaundry(false, (err, cleanLaundry) => {
-            if (err) {
-                console.log(err);
+function goHome(byCar, callback) {
+    setTimeout(() => {
+        if (!byCar) {
+            callback('Йти пішки додому корисно для здоров"я');
+            return
+        }
+        callback(null, 'Приїхав швидко додому')
+    }, 2000)
+
+}
+
+function doLaundry(electricity, callback) {
+    setTimeout(() => {
+        console.log('Одяг завантажено');
+        console.log('Прання розпочато');
+        if (!electricity) {
+            callback('Неможливо завершити прання');
+            callback('Відсутня електроенергія');
+            callback('Телефонуй електрику');
+            return
+        }
+        callback(null, 'Прання завершено');
+    }, 3000)
+}
+
+wakeUp(true, (err, getUp) => {
+    if (!err) {
+        console.log(getUp);
+        doMorningExerc(true, (err, exercised) => {
+            if (!err) {
+                console.log(exercised);
+                eat(true, (err, haveEat) => {
+                    if (!err) {
+                        console.log(haveEat);
+                        goToWork(true, (err, goToWorkInTime) => {
+                            if (!err) {
+                                console.log(`В мене вже є ${money} грн.`)
+                                return
+                            }
+                            console.log(err)
+                        })
+                        return
+                    }
+                    console.log(err)
+                })
                 return;
             }
-            console.log(cleanLaundry)
-        });
+            console.log(err);
+        })
         return
     }
-    console.log(getUp);
+    console.log(err);
 })
-//
-// doLaundry(false, (err, cleanLaundry) => {
-//     if (err) {
-//         console.log(err);
-//         return;
-//     }
-//     console.log(cleanLaundry)
-// });
 
 
-// // doLaundry(false, (err, cleanLaundry) => {
-//         if (err) {
-//             console.log(err);
-//             return;
-//         }
-//         console.log(cleanLaundry)
-//     }
-// );
-// doLaundry(false, (err, cleanLaundry) => {
-//         if (err) {
-//             console.log(err);
-//             return;
-//         }
-//         console.log(cleanLaundry)
-//     }
-// );
-
-//   // Иногда наша стиральная машина ломается
-//   // Лучше обработайте эту возможную ошибку
-//   if (err) throw err;
-//   // Если нет никакой ошибки, то переключаемся на сушку белья после того, как постиралось бельё
-//   // Та-да! Наш обратный звонок (вызов) оповестит нас когда стирка завершится
-//   switchToDryer(cleanLaundry);
-// });
-//
-// console.log(cleanLaundry);
-
+    // doLaundry(false, (err, cleanLaundry) => {
+            //     if (!err) {
+            //         console.log(cleanLaundry);
+            //         return;
+            //     }
+            //     console.log(err)
+            // });
 
 // function gotToVacation(money, covidTest, city, cb) {
 //     console.log(`Доюрого дня. У нас гарячі тури в ${city}`);
