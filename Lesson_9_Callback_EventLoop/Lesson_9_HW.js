@@ -1,45 +1,45 @@
 let money = 500;
 
-// function wakeUp(alarmCall, callback) {
-//     setTimeout(() => {
-//         if (!alarmCall) {
-//             callback('Проспав до вечора');
-//             return
-//         }
-//         callback(null, 'Я прокинувся');
-//     }, 500)
-// }
-//
-// function doMorningExerc(exercises, callback) {
-//     setTimeout(() => {
-//         if (!exercises) {
-//             callback(console.error('Гіподинамія шкідливо впливає на організм'));
-//             return
-//         }
-//         callback(null, 'Зробив зарядку');
-//         callback(null, 'Зарядився енергією на цілий день');
-//     }, 1000)
-// }
-//
-// function eat(eatMeal, callback) {
-//     setTimeout(() => {
-//         if (!eatMeal) {
-//             callback('Залишився голодним');
-//             return
-//         }
-//         callback(null, 'Смачно поїв, набрався сил');
-//     }, 1000)
-// }
-//
-// function goToWork(inTime, callback) {
-//     setTimeout(() => {
-//         if (inTime) {
-//             callback(null, money += 500);
-//             return
-//         }
-//         callback('Запізнився на роботу. Йди додому!')
-//     }, 500)
-// }
+function wakeUp(alarmCall, callback) {
+    setTimeout(() => {
+        if (!alarmCall) {
+            callback('Проспав до вечора');
+            return
+        }
+        callback(null, 'Я прокинувся');
+    }, 500)
+}
+
+function doMorningExerc(exercises, callback) {
+    setTimeout(() => {
+        if (!exercises) {
+            callback(console.error('Гіподинамія шкідливо впливає на організм'));
+            return
+        }
+        callback(null, 'Зробив зарядку');
+        callback(null, 'Зарядився енергією на цілий день');
+    }, 1000)
+}
+
+function eat(eatMeal, callback) {
+    setTimeout(() => {
+        if (!eatMeal) {
+            callback('Залишився голодним');
+            return
+        }
+        callback(null, 'Смачно поїв, набрався сил');
+    }, 1000)
+}
+
+function goToWork(inTime, callback) {
+    setTimeout(() => {
+        if (inTime) {
+            callback(null, money += 500);
+            return
+        }
+        callback('Запізнився на роботу. Йди додому!')
+    }, 500)
+}
 //
 // function finishWork(inTime, callback) {
 //     setTimeout(() => {
@@ -76,34 +76,34 @@ let money = 500;
 //     }, 3000)
 // }
 //
-// wakeUp(true, (err, getUp) => {
-//     if (!err) {
-//         console.log(getUp);
-//         doMorningExerc(true, (err, exercised) => {
-//             if (!err) {
-//                 console.log(exercised);
-//                 eat(true, (err, haveEat) => {
-//                     if (!err) {
-//                         console.log(haveEat);
-//                         goToWork(true, (err, goToWorkInTime) => {
-//                             if (!err) {
-//                                 console.log(`В мене вже є ${goToWorkInTime} грн.`);
-//                             } else {
-//                                 console.log(err);
-//                             }
-//                         })
-//                     } else {
-//                         console.log(err)
-//                     }
-//                 })
-//             } else {
-//                 console.log(err);
-//             }
-//         })
-//         return
-//     }
-//     console.log(err);
-// })
+wakeUp(true, (err, getUp) => {
+    if (!err) {
+        console.log(getUp);
+        doMorningExerc(true, (err, exercised) => {
+            if (!err) {
+                console.log(exercised);
+                eat(true, (err, haveEat) => {
+                    if (!err) {
+                        console.log(haveEat);
+                        goToWork(true, (err, goToWorkInTime) => {
+                            if (!err) {
+                                console.log(`В мене вже є ${goToWorkInTime} грн.`);
+                            } else {
+                                console.log(err);
+                            }
+                        })
+                    } else {
+                        console.log(err)
+                    }
+                })
+            } else {
+                console.log(err);
+            }
+        })
+        return
+    }
+    console.log(err);
+})
 
 // PROMISE
 //
@@ -178,78 +178,78 @@ let money = 500;
 
 // ASYNC___________________________________________
 
-function wakeUp(alarmCall) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if (alarmCall) {
-                resolve('Я прокинувся');
-            } else {
-                reject('Проспав до вечора');
-            }
-        }, 500);
-    })
-}
-
-function doMorningExerc(exercises) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if (exercises) {
-                resolve('Зробив зарядку');
-                resolve('Зарядився енергією на цілий день');
-            } else {
-                reject('Гіподинамія шкідливо впливає на організм');
-            }
-        }, 1000);
-    })
-}
-
-function eat(eatMeal) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if (eatMeal) {
-                resolve('Смачно поїв, набрався сил');
-            } else {
-                reject('Залишився голодним');
-            }
-        }, 1000)
-    });
-}
-
-function goToWork(inTime) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if (inTime) {
-                resolve(money += 500);
-            } else {
-                reject('Запізнився на роботу. Йди додому!')
-            }
-        }, 500)
-    })
-}
-
-async function workingDay() {
-    try {
-        let wd = await wakeUp(true);
-        console.log(wd);
-
-        wd = await doMorningExerc(true);
-        console.log(wd);
-
-
-        wd = await eat(true);
-        console.log(wd);
-
-
-        wd = await goToWork(true);
-        console.log(`В мене вже є ${wd} грн.`);
-
-    } catch (err){
-        console.error(err);
-    }
-}
-
-workingDay();
-
+// function wakeUp(alarmCall) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             if (alarmCall) {
+//                 resolve('Я прокинувся');
+//             } else {
+//                 reject('Проспав до вечора');
+//             }
+//         }, 500);
+//     })
+// }
+//
+// function doMorningExerc(exercises) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             if (exercises) {
+//                 resolve('Зробив зарядку');
+//                 resolve('Зарядився енергією на цілий день');
+//             } else {
+//                 reject('Гіподинамія шкідливо впливає на організм');
+//             }
+//         }, 1000);
+//     })
+// }
+//
+// function eat(eatMeal) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             if (eatMeal) {
+//                 resolve('Смачно поїв, набрався сил');
+//             } else {
+//                 reject('Залишився голодним');
+//             }
+//         }, 1000)
+//     });
+// }
+//
+// function goToWork(inTime) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             if (inTime) {
+//                 resolve(money += 500);
+//             } else {
+//                 reject('Запізнився на роботу. Йди додому!')
+//             }
+//         }, 500)
+//     })
+// }
+//
+// async function workingDay() {
+//     try {
+//         let wd = await wakeUp(true);
+//         console.log(wd);
+//
+//         wd = await doMorningExerc(true);
+//         console.log(wd);
+//
+//
+//         wd = await eat(true);
+//         console.log(wd);
+//
+//
+//         wd = await goToWork(true);
+//         console.log(`В мене вже є ${wd} грн.`);
+//
+//     } catch (err){
+//         console.error(err);
+//     }
+// }
+//
+// workingDay();
+//
 // doLaundry(false, (err, cleanLaundry) => {
 //     if (!err) {
 //         console.log(cleanLaundry);
