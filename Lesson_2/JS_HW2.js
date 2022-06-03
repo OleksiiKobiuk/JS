@@ -3,11 +3,11 @@
 // - з 5 стрічкових значень
 // - з 5 значень стрічкового, числового та булевого типу
 // - та вивести його в консоль
-
-let num = [1, 3 , 5, 2, 6];
-let str = ['Alex', 'man', 'woman', 's', 'b'];
-let mix = [1, 2, 4, 'Alex', 'man', true, false];
-console.log(num, str, mix);
+//
+// let num = [1, 3 , 5, 2, 6];
+// let str = ['Alex', 'man', 'woman', 's', 'b'];
+// let mix = [1, 2, 4, 'Alex', 'man', true, false];
+// console.log(num, str, mix);
 
 // -- Створити пустий масив. Наповнити його будь-якими значеннями звертаючись до конкретного індексу. Вивести в консоль
 
@@ -21,7 +21,7 @@ console.log(num, str, mix);
 
 // for (let i = 0; i < 10; i++){
 //     document.write('<div>Hello world!</div>')
-// }
+}
 // - За допомогою циклу for і document.write() вивести 10 блоків div c довільним текстом і індексом всередині
 
 // for (let i = 0; i < 10; i++){
