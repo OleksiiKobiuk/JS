@@ -313,22 +313,23 @@
 // let n3 = 'Hermione Granger'
 //
 
-// let n1 = '    Harry       Potter    drebv    ';
-// let n2 = '    Ron       Whisley      ';
-// let n3 = '    Hermione       Granger      ';
-// let normalize = x => {
-//     let arr = x.split(' ');
-//     let b = [];
-//     for (let i = 0; i < arr.length; i++) {
-//         if (arr[i] !== '') {
-//             b +=` ${arr[i]}`;
-//         }
-//     }
-//     return b.trim()
-// }
-// console.log(normalize(n1));
-// console.log(normalize(n2));
-// console.log(normalize(n3));
+let n1 = '    Harry       Potter    drebv    ';
+let n2 = '    Ron       Whisley      ';
+let n3 = '    Hermione       Granger      ';
+let normalize = x => {
+    let arr = x.split(' ');
+    let b = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] !== '') {
+            b +=` ${arr[i]}`;
+        }
+    }
+    return arr
+    // return b.trim()
+}
+console.log(normalize(n1));
+console.log(normalize(n2));
+console.log(normalize(n3));
 
 // ============================================================================================
 //
@@ -359,7 +360,7 @@
 // та  індентифікатор елемнту в який потрібно додати список цих автомобілів.
 // Для кожного автомобіля створити свій блок, та додати його в елемент, індентифікатор якого ви отримали.
 // Всі властивості авто в одному блоці
-// arr1 = [{name: 'Dima', age: 13}, {model: 'Camry'}];
+// let arr1 = [{name: 'Dima', age: 13}, {model: 'Camry'}];
 //
 // function pushator(arr = [], type = '') {
 //     for (const arrElement in arr) {
@@ -376,7 +377,7 @@
 //
 // let type1 = 'h1';
 // pushator(arr1, type1);
-
+//
 
 // - приймає масив автомобілів (можна взяти з попередніх дз )
 // та  індентифікатор елемнту в який потрібно додати список цих автомобілів.

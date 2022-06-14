@@ -216,53 +216,169 @@
 // console.log(changeElements(testArr, 2))
 //
 // //
-// - Сворити функцію яка буде переносити елементи з значенням 0 у кінець маисву. Зберігаючи при цьому порядок не нульових значень.
-// Двожина масиву від 2 до 100
-// EXAMPLE:
-// [1,0,6,0,3] => [1,6,3,0,0]
-// [0,1,2,3,4] => [1,2,3,4,0]
-// [0,0,1,0]   => [1,0,0,0]
-
-let zeroToEnd = arrayWithZeros => {
-    let newArr = []
-    for (let i = 0; i < arrayWithZeros.length; i++){
-        if (arrayWithZeros[i] !== 0){
-            newArr.push(arrayWithZeros[i]);
-        }
-    }
-    for (let i = 0; i < arrayWithZeros.length; i++){
-        if (i < newArr.length){
-            arrayWithZeros[i] = newArr[i];
-        }
-        else {
-            arrayWithZeros[i] = 0;
-        }
-    }
-    return arrayWithZeros
-}
-let arrForTest = [1,0,6,0,3]
-console.log(zeroToEnd(arrForTest))
+// // - Сворити функцію яка буде переносити елементи з значенням 0 у кінець маисву. Зберігаючи при цьому порядок не нульових значень.
+// // Двожина масиву від 2 до 100
+// // EXAMPLE:
+// // [1,0,6,0,3] => [1,6,3,0,0]
+// // [0,1,2,3,4] => [1,2,3,4,0]
+// // [0,0,1,0]   => [1,0,0,0]
 //
-// - Дано список імен.
+// let zeroToEnd = arrayWithZeros => {
+//     let newArr = []
+//     for (let i = 0; i < arrayWithZeros.length; i++){
+//         if (arrayWithZeros[i] !== 0){
+//             newArr.push(arrayWithZeros[i]);
+//         }
+//     }
+//     for (let i = 0; i < arrayWithZeros.length; i++){
+//         if (i < newArr.length){
+//             arrayWithZeros[i] = newArr[i];
+//         }
+//         else {
+//             arrayWithZeros[i] = 0;
+//         }
+//     }
+//     return arrayWithZeros
+// }
+// let arrForTest = [1,0,6,0,3]
+// console.log(zeroToEnd(arrForTest))
+//
+// // - Дано список імен.
 // let n1 = '    Harry       Potter      '
 // let n2 = '    Ron       Whisley      '
 // let n3 = '    Hermione       Granger      '
-// Написати функцію, яка приймає будь яке не валідне імя, та нормалізує його в наступнйи вигляд
-// let n1 = 'Harry Potter'
-// let n2 = 'Ron Whisley'
-// let n3 = 'Hermione Granger'
+// // Написати функцію, яка приймає будь яке не валідне імя, та нормалізує його в наступнйи вигляд
+// // let n1 = 'Harry Potter'
+// // let n2 = 'Ron Whisley'
+// // let n3 = 'Hermione Granger'
 //
+// let validName = name =>{
+//     let newName = name.trim();
+//     let oneSpace = newName.replace(' ','_');
+//     let allSpaces = oneSpace.split(' ').join('');
+//     let finalName = allSpaces.replace('_', ' ');
+//     return finalName
+// }
+// console.log(validName(n1))
+// console.log(validName(n2))
+// console.log(validName(n3))
+// //
 // ============================================================================================
 //
 //
 //
 // // ******************* НАЗАД В МИНУЛЕ *********************** //
-// Створити функцію яка :
-// - Додає в боді блок з текстом "Hello owu"
-// - Додає в боді елемент з текстом . Тип елементу та текст отримати через аргументи
-// - приймає масив автомобілів (можна взяти з попередніх дз ),та  індентифікатор елемнту в який потрібно додати список цих автомобілів.
-// Для кожного автомобіля створити свій блок, та додати його в елемент, індентифікатор якого ви отримали. Всі властивості авто в обному блоці
-// - приймає масив автомобілів (можна взяти з попередніх дз ),та  індентифікатор елемнту в який потрібно додати список цих автомобілів.
-// Для кожного автомобіля створити свій блок, та додати його в елемент, індентифікатор якого ви отримали.
-// Для кожної властивості створити всередені блока автомоблія свій блок
+// // Створити функцію яка :
+// // - Додає в боді блок з текстом "Hello owu"
+// let addText = () => {
+//     const divElement = document.createElement('div');
+//     divElement.innerText = "Hello owu";
+//     document.body.appendChild(divElement);
+// }
+// addText()
+// // - Додає в боді елемент з текстом . Тип елементу та текст отримати через аргументи
+// let addTagText = (tagName, text) => {
+//     const divElement = document.createElement(tagName);
+//     divElement.innerText = text;
+//     document.body.appendChild(divElement);
+// }
+// addTagText('p', "What's your name?");
+
+
+let users = [{
+  name: 'vasya',
+  age: 31,
+  status: false,
+  address: { city: 'Lviv', country: 'Ukraine', street: 'Shevchenko', houseNumber: 1 }
+}, {
+  name: 'petya',
+  age: 30,
+  status: true,
+  address: { city: 'New York', country: 'USA', street: 'East str', houseNumber: 21 }
+}, {
+  name: 'kolya',
+  age: 29,
+  status: true,
+  address: { city: 'Budapest', country: 'Hungary', street: 'Kuraku', houseNumber: 78 }
+}, {
+  name: 'olya',
+  age: 28,
+  status: false,
+  address: { city: 'Prague', country: 'Czech', street: 'Paster', houseNumber: 56 }
+}, {
+  name: 'max',
+  age: 30,
+  status: true,
+  address: { city: 'Istanbul', country: 'Turkey', street: 'Mikar', houseNumber: 39 }
+}, {
+  name: 'anya',
+  age: 31,
+  status: false,
+  address: { city: 'Rio', country: 'Brasil', street: 'Ronaldi', houseNumber: 5 }
+}, {
+  name: 'oleg',
+  age: 28,
+  status: false,
+  address: { city: 'Montreal', country: 'Canada', street: 'Acusto', houseNumber: 90 }
+}, {
+  name: 'andrey',
+  age: 29,
+  status: true,
+  address: { city: 'Quebeck', country: 'Canada', street: 'Binaro', houseNumber: 33 }
+}, {
+  name: 'masha',
+  age: 30,
+  status: true,
+  address: { city: 'Moscow', country: 'Russia', street: 'Gogolia', houseNumber: 1 }
+}, {
+  name: 'olya',
+  age: 31,
+  status: false,
+  address: { city: 'Portland', country: 'USA', street: 'Forest str', houseNumber: 4 }
+}, {
+  name: 'max',
+  age: 31,
+  status: true,
+  address: { city: 'Cairo', country: 'Egypt', street: 'Seashore', houseNumber: 45 }
+}];
+// - приймає масив автомобілів (можна взяти з попередніх дз ) та  індентифікатор елементу,
+// в який потрібно додати список цих автомобілів.
+// Для кожного автомобіля створити свій блок та додати його в елемент,
+// індентифікатор якого ви отримали. Всі властивості авто в обному блоці
+
+// let arrayInTeg = (profile, tagName) =>{
+//     for (const element of profile){
+//         const newTag = document.createElement(tagName);
+//         newTag.style.border = '3px solid blue';
+//         newTag.innerHTML = JSON.stringify(element);
+//         document.body.appendChild(newTag)
+//     }
+// }
+//
+// arrayInTeg(users, 'p')
+
+// - приймає масив автомобілів (можна взяти з попередніх дз ) та індентифікатор елемнту,
+// в який потрібно додати список цих автомобілів.
+// Для кожного автомобіля створити свій блок та додати його в елемент,
+// індентифікатор якого ви отримали.
+// Для кожної властивості створити всередені блока автомобіля свій блок
+
+let arrayInTeg2 = (profile, tagNameMain, tagName) =>{
+    for (const element of profile){
+        const newTag = document.createElement(tagNameMain);
+        newTag.style.border = '3px solid blue';
+        document.body.appendChild(newTag);
+        for (const character in element){
+            const tagInside = document.createElement(tagName);
+            const tagInsideValue = document.createElement(tagName);
+            tagInside.style.border = '2px solid red';
+            tagInside.innerHTML = JSON.stringify(character);
+            tagInsideValue.innerHTML = JSON.stringify(element[character]);
+            newTag.appendChild(tagInside);
+            tagInside.appendChild(tagInsideValue);
+        }
+    }
+}
+arrayInTeg2(users, 'div', 'li')
+
 // // ******************* НАЗАД В МИНУЛЕ *********************** //
